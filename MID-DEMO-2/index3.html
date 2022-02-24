@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>File upload demo in node.js</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="http://cdnjs.cloudfare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+        
+        <script>
+            $(document).ready.submit(function(){
+                $('#uploadForm').submit(function(){
+                    $("#status").empty().text("FILE IS ULPOADING...");
+                    
+                    $(this).ajaxSubmit({error:function(xhr) {
+                        status('Error: '+ xhr.status);
+
+                    },
+                    success: function(response){
+                       console.log(response)
+                       $("#status").empty().text(response); 
+                    }
+                });
+                return false;
+            });
+        });
+        </script>
+    </head>
+
+    <body>
+        <h1>Using Express.js to Desmonstrate File Upload</h1>
+        <form id="uploadForm" enctype="multipart/form-data" action="/uploaded" method="post">
+        <input type="file" name="myfile" multiple /><br/><br/>
+        <input type="Submit" value="Upload Image" name="Submit"><br/><br/>
+        <span id="status"></span>
+        </form>
+    </body>
+</html>
