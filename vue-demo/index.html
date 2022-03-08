@@ -1,0 +1,57 @@
+<html>
+    <head>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <title> Vue JS Demo App </title>
+
+</head>
+
+<body>
+
+    <!--Vue.js Event Handling and Directives-->
+    <div id="app">
+        <!-- Any code here for VUE JS control-->
+       <p>{{title}} - {{author}} - {{age}}</p>
+        <button v-on:click="age++">Get Older</button>
+        <button v-on:click="age--">Get Older</button>
+        <button @click="title = 'The title has changed. '">Change Title </button>
+        </div>
+   
+    
+    <!--Two way binding-->
+    <div id="two-way-binding">
+        <p>{{ message }}</p>
+        <input v-model="message">
+    </div>
+
+    <div id="conditional-rendering">
+        <span v-if= "seen">Now You see me!</span>
+    </div>
+
+    <div id="books">
+        <div v-if="showBooks">
+            <p>{{btitle}} - {{bauthor}} - {{year}}</p>
+        </div>
+
+       <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+       </button>
+    </div>
+
+    <div id="list-rendering">
+        <ol>
+            <li v-for="todo in todos">
+            {{todo.text}}
+            </li>
+        </ol>
+    </div>
+     <!--INSERT THE CODE TO LINK TO APP.JS-->
+
+     <script src="app.js"></script>
+     <script src="two-way.js"></script>
+     <script src="conditionalif.js"></script>
+     <script src="books.js"></script>
+     <script src="listfor.js"></script>
+     
+</body>
+</html>
